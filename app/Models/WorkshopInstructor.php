@@ -12,7 +12,7 @@ class WorkshopInstructor extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-       'name',
+        'name',
         'occupation',
         'avatar',
     ];
