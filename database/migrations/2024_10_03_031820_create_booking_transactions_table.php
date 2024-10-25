@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('customer_bank_number');
             $table->string('booking_trx_id');
             $table->string('proof');
-            $table->unsignedInteger('quantity');
-            $table->unsignedInteger('total_amout');
+            $table->unsignedBigInteger('quantity');
+            $table->unsignedBigInteger('total_amount');
             $table->boolean('is_paid');
             $table->foreignId('workshop_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();

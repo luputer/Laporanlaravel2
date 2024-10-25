@@ -11,18 +11,25 @@ class WorkshopParticipant extends Model
 {
     use HasFactory, SoftDeletes;
 
-   protected $table = 'workshop_participants';
+    protected $table = 'workshop_participants';
 
     protected $fillable = [
         'name',
-        'occupation', 
-        'email', 
-        'wokshop_id',
+        'occupation',
+        'email',
+        'workshop_id',  // Fixed typo here ('wokshop_id' => 'workshop_id')
         'booking_transaction_id',
     ];
 
+    // Define the relationship to Workshop
     public function workshop(): BelongsTo
     {
-        return $this->belongsTo(Workshop::class, 'booking-transaction_id');
+        return $this->belongsTo(Workshop::class, 'workshop_id');
+    }
+
+    // Define the relationship to BookingTransaction
+    public function bookingTransaction(): BelongsTo
+    {
+        return $this->belongsTo(BookingTransaction::class, 'booking_transaction_id');
     }
 }

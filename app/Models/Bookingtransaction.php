@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Bookingtransaction extends Model
+class BookingTransaction extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -24,11 +24,11 @@ class Bookingtransaction extends Model
         'proof',
         'quantity',
         'total_amount',
-        'is-paid',
-        'wokshop_id',
+        'is_paid',
+        'workshop_id',
     ];
 
-    public static function geneateUniqueTrxId()
+    public static function generateUniqueTrxId()
     {
         $prefix = 'AKT';
         do {
@@ -42,7 +42,8 @@ class Bookingtransaction extends Model
     {
         return $this->hasMany(WorkshopParticipant::class);
     }
-    public function wokshop(): BelongsTo
+
+    public function workshop(): BelongsTo
     {
         return $this->belongsTo(Workshop::class);
     }
