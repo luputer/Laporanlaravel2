@@ -18,7 +18,7 @@ class FrontService
         $this->categoryRepository = $categoryRepository;
     }
 
-    public function getFrontData()
+    public function getFrontPageData()
     {
         $categories = $this->categoryRepository->getAllCategories();
         $newWorkshop = $this->workshopRepository->getAllNewWorkshops();
