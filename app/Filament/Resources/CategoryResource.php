@@ -31,9 +31,10 @@ class CategoryResource extends Resource
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('icon')
+                Forms\Components\FileUpload::make('icon')
+                    ->image()
                     ->required()
-                    ->maxLength(255),
+                   ->disk('public')
             ]);
     }
 
@@ -42,7 +43,7 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
-                ->searchable(),
+                    ->searchable(),
 
                 Tables\Columns\ImageColumn::make('icon'),
             ])
